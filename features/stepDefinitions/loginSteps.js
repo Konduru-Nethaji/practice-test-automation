@@ -4,7 +4,6 @@ const chai = require('chai');
 
 const expect = chai.expect;
 
-// ✅ FIX 1: Increase default timeout to 30 seconds
 setDefaultTimeout(30 * 1000);
 
 let browser;
