@@ -20,7 +20,6 @@ After(async function () {
   await browser.close();
 });
 
-// ✅ FIX 2: Use keyboard.down/up instead of "Control+A"
 async function clearAndType(page, selector, value) {
   await page.waitForSelector(selector);
   await page.click(selector, { clickCount: 3 });
@@ -58,7 +57,6 @@ When('the user enters invalid password {string}, {string}', async function (user
 
 When('the user clicks on the Login button', async function () {
   await page.click('#submit');
-  // ✅ Wait for either success or error to appear
   await Promise.race([
     page.waitForSelector('.wp-block-button__link', { timeout: 10000 }),
     page.waitForSelector('div#error.show', { timeout: 10000 })
